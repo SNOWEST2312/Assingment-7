@@ -1,0 +1,252 @@
+{
+  "name": "Mi Codespace Web",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:5-22-bookworm",
+  "forwardPorts": [3000, 5500],
+  "portsAttributes": {
+    "3000": {
+      "label": "Express app",
+      "onAutoForward": "notify"
+    },
+    "5500": {
+      "label": "Live Server",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y sqlite3",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "aaron-bond.better-comments",
+        "christian-kohler.path-intellisense",
+        "dbaeumer.vscode-eslint",
+        "ecmel.vscode-html-css",
+        "esbenp.prettier-vscode",
+        "pkief.material-icon-theme",
+        "qwtel.sqlite-viewer",
+        "rendinjast.amoled-black",
+        "ritwickdey.liveserver",
+        "vincaslt.highlight-matching-tag"
+      ],
+      "settings": {
+        "workbench.colorTheme": "AMOLED Black",
+        "workbench.iconTheme": "material-icon-theme",
+        "workbench.editor.empty.hint": "hidden",
+        "workbench.startupEditor": "welcomePage",
+        "workbench.editor.enablePreview": false,
+        "workbench.editor.closeEmptyGroups": true,
+        "workbench.editor.highlightModifiedTabs": true,
+        "workbench.editor.tabCloseButton": "right",
+        "workbench.list.smoothScrolling": true,
+        "workbench.tree.indent": 20,
+
+        "editor.fontSize": 14,
+        "editor.fontFamily": "'Cascadia Code', 'Fira Code', Consolas, monospace",
+        "editor.fontLigatures": true,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false,
+        "editor.wordWrap": "on",
+        "editor.autoIndent": "full",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.formatOnType": false,
+        "editor.renderWhitespace": "selection",
+
+        "editor.minimap.enabled": true,
+        "editor.minimap.renderCharacters": false,
+        "editor.minimap.maxColumn": 120,
+        "editor.bracketPairColorization.enabled": true,
+        "editor.guides.bracketPairs": "active",
+        "editor.guides.indentation": true,
+        "editor.cursorBlinking": "smooth",
+        "editor.cursorSmoothCaretAnimation": "on",
+        "editor.smoothScrolling": true,
+        "editor.stickyScroll.enabled": true,
+        "editor.linkedEditing": true,
+        "editor.inlineSuggest.enabled": true,
+        "editor.parameterHints.enabled": true,
+        "editor.matchBrackets": "always",
+        "editor.semanticHighlighting.enabled": true,
+        "editor.lightbulb.enabled": "onCode",
+        "editor.hover.delay": 300,
+        "editor.autoClosingBrackets": "always",
+        "editor.autoClosingQuotes": "always",
+        "editor.autoClosingOvertype": "never",
+
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit"
+        },
+
+        "[html]": {
+          "editor.defaultFormatter": "vscode.html-language-features",
+          "editor.formatOnSave": true,
+          "editor.tabSize": 2
+        },
+        "[css]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": true,
+          "editor.tabSize": 2
+        },
+        "[javascript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": true,
+          "editor.tabSize": 2,
+          "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit",
+            "source.organizeImports": "explicit"
+          }
+        },
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": true,
+          "editor.tabSize": 2,
+          "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit",
+            "source.organizeImports": "explicit"
+          }
+        },
+        "[json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": true,
+          "editor.tabSize": 2
+        },
+        "[jsonc]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": true,
+          "editor.tabSize": 2
+        },
+
+        "prettier.singleQuote": true,
+        "prettier.semi": true,
+        "prettier.trailingComma": "es5",
+        "prettier.printWidth": 100,
+        "prettier.tabWidth": 2,
+        "prettier.useTabs": false,
+
+        "eslint.validate": [
+          "javascript",
+          "typescript"
+        ],
+        "eslint.format.enable": false,
+
+        "emmet.triggerExpansionOnTab": true,
+        "emmet.showExpandedAbbreviation": "always",
+        "emmet.syntaxProfiles": {
+          "html": {
+            "selfClosingStyle": "html"
+          }
+        },
+
+        "css.validate": true,
+        "css.enabledLanguages": [
+          "html"
+        ],
+        "html-css-class-completion.enableEmmetSupport": true,
+
+        "liveServer.settings.donotShowInfoMsg": true,
+        "liveServer.settings.port": 5500,
+        "liveServer.settings.CustomBrowser": "chrome",
+
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 1000,
+        "files.autoSaveWhenNoErrors": true,
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true,
+        "files.trimFinalNewlines": true,
+
+        "terminal.integrated.fontSize": 13,
+        "terminal.integrated.fontFamily": "'Cascadia Code', Consolas, monospace",
+        "terminal.integrated.cursorBlinking": true,
+        "terminal.integrated.cursorStyle": "line",
+        "terminal.integrated.smoothScrolling": true,
+        "terminal.integrated.copyOnSelection": true,
+
+        "git.autofetch": true,
+        "git.enableSmartCommit": false,
+        "git.confirmSync": true,
+        "git.autoStash": true,
+        "git.confirmForcePush": true,
+        "git.enableStatusBarSync": true,
+
+        "debug.inlineValues": "auto",
+        "debug.console.wordWrap": true,
+        "debug.toolBarLocation": "docked",
+        "debug.showInStatusBar": "always",
+        "debug.focusWindowOnBreak": true,
+
+        "telemetry.telemetryLevel": "off",
+        "workbench.enableExperiments": false,
+        "extensions.autoCheckUpdates": false,
+
+        "workbench.colorCustomizations": {
+          "editorLineNumber.foreground": "#ABB2BF",
+          "editorLineNumber.activeForeground": "#E5C07B",
+          "editorBracketHighlight.foreground1": "#E5C07B",
+          "editorBracketHighlight.foreground2": "#61AFEF",
+          "editorBracketHighlight.foreground3": "#C678DD",
+          "editorBracketHighlight.foreground4": "#56B6C2",
+          "editorBracketHighlight.foreground5": "#E06C75",
+          "editorBracketHighlight.foreground6": "#98C379"
+        },
+
+        "editor.tokenColorCustomizations": {
+          "comments": "#8E949C"
+        },
+
+        "better-comments.tags": [
+          {
+            "tag": "!!",
+            "color": "#E06C75",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent"
+          },
+          {
+            "tag": "?",
+            "color": "#61AFEF",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent"
+          },
+          {
+            "tag": "*",
+            "color": "#D19A66",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent"
+          },
+          {
+            "tag": "todo",
+            "color": "#56B6C2",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent"
+          },
+          {
+            "tag": "fixme",
+            "color": "#F44747",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent"
+          },
+          {
+            "tag": "note",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent"
+          },
+          {
+            "tag": "hack",
+            "color": "#C678DD",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent"
+          }
+        ]
+      }
+    }
+  }
+}
