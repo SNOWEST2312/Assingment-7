@@ -1,11 +1,13 @@
 import express from 'express';
 import database from './databases/db.js';
+import apiRouter from './routes/index';
 
 const app = express();
 const port = 3000;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
+app.use('/api/v1', apiRouter);
 
 app.get('/api/v1/books', (request, response) => {
   const format = request.query.format || 'hardcover';
@@ -104,16 +106,7 @@ app.post('/api/v1/ratings', (request, response) => {
   );
 });
 
-app.get('/api/v1/authors', (request, response) => {
-  database.all('SELECT * FROM authors', (error, authors) => {
-    if (error) {
-      response.status(500).json({ error: 'Unable to fetch authors' });
-      return;
-    }
 
-    response.json(authors);
-  });
-});
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
