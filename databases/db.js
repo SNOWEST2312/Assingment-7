@@ -1,5 +1,5 @@
-import { DatabasesSync } from 'node:sqlite';
+import { DatabaseSync } from 'node:sqlite';
 
-const databases = new DatabasesSync('/databases/longlist-advance.db');
+const databases = new DatabaseSync('/databases/longlist-advance.db');
 
 export default databases;
