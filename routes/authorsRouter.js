@@ -1,8 +1,8 @@
 import express from 'express';
-import { getAllAuthors } from '../models/authorsModel.js';
+import { getAllAuthors } from '../controllers/authorsController.js';
 
 const router = express.Router();
 
-router.get('/', getAuthors);
+router.get('/', getAllAuthors);
 
 export default router;

@@ -1,6 +1,6 @@
 import database from '../databases/db.js';
 
-export function getAllAuthors(callback) {
+export function getAllAuthors() {
   const statement = database.prepare('SELECT * FROM authors');
-  const authors = statement.all();
+  return statement.all();
 }
