@@ -1,6 +1,6 @@
 import express from 'express';
 import database from './databases/db.js';
-import apiRouter from './routes/index';
+import apiRouter from './routes/index.js';
 
 const app = express();
 const port = 3000;
@@ -105,8 +105,6 @@ app.post('/api/v1/ratings', (request, response) => {
     }
   );
 });
-
-
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
