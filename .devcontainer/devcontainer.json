@@ -16,6 +16,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "GitHub.copilot-chat",
         "aaron-bond.better-comments",
         "christian-kohler.path-intellisense",
         "dbaeumer.vscode-eslint",
@@ -28,6 +29,11 @@
         "vincaslt.highlight-matching-tag"
       ],
       "settings": {
+        "github.copilot.enable": {
+          "*": true
+        },
+        "github.copilot.editor.enableAutoCompletions": true,
+
         "workbench.colorTheme": "AMOLED Black",
         "workbench.iconTheme": "material-icon-theme",
         "workbench.editor.empty.hint": "hidden",
@@ -84,11 +90,13 @@
           "editor.formatOnSave": true,
           "editor.tabSize": 2
         },
+
         "[css]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode",
           "editor.formatOnSave": true,
           "editor.tabSize": 2
         },
+
         "[javascript]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode",
           "editor.formatOnSave": true,
@@ -98,6 +106,7 @@
             "source.organizeImports": "explicit"
           }
         },
+
         "[typescript]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode",
           "editor.formatOnSave": true,
@@ -107,11 +116,13 @@
             "source.organizeImports": "explicit"
           }
         },
+
         "[json]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode",
           "editor.formatOnSave": true,
           "editor.tabSize": 2
         },
+
         "[jsonc]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode",
           "editor.formatOnSave": true,
@@ -125,10 +136,7 @@
         "prettier.tabWidth": 2,
         "prettier.useTabs": false,
 
-        "eslint.validate": [
-          "javascript",
-          "typescript"
-        ],
+        "eslint.validate": ["javascript", "typescript"],
         "eslint.format.enable": false,
 
         "emmet.triggerExpansionOnTab": true,
@@ -140,9 +148,7 @@
         },
 
         "css.validate": true,
-        "css.enabledLanguages": [
-          "html"
-        ],
+        "css.enabledLanguages": ["html"],
         "html-css-class-completion.enableEmmetSupport": true,
 
         "liveServer.settings.donotShowInfoMsg": true,
@@ -178,7 +184,7 @@
 
         "telemetry.telemetryLevel": "off",
         "workbench.enableExperiments": false,
-        "extensions.autoCheckUpdates": false,
+        "extensions.autoCheckUpdates": true,
 
         "workbench.colorCustomizations": {
           "editorLineNumber.foreground": "#ABB2BF",
