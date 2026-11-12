@@ -7,5 +7,5 @@ CREATE TABLE reviews(
   book_id INTEGER NOT NULL,
   comment TEXT NOT NULL,
   FOREIGN KEY (book_id) REFERENCES books(id),
-  CONSTRAINT rating_check CHECK (rating >= 1 AND rating<= 5)
+  CONSTRAINT rating_range CHECK (rating >= 0 AND rating <= 5)
 );

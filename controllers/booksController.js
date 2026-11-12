@@ -1,4 +1,4 @@
-import { getAuthorsByBookId, getBooks, getBookById } from '../models/booksModel.js';
+import { getAuthorsByBookId, getBookById, getBooks } from '../models/booksModel.js';
 
 export function getBooksList(request, response) {
   try {
@@ -21,7 +21,8 @@ export function getBookDetails(request, response) {
 
     if (!book) {
       response.status(404).json({
-        error: 'Book not found',
+        status: 404,
+        message: 'A book with that ID was not found',
       });
       return;
     }
