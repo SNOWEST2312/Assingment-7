@@ -1,54 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A5 Test Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 7 - Books Edition</title>
 </head>
+
 <body>
 
-    <h1>Assignment 5 - Books Edition</h1>
-    <p>Use this page to test your server-side application!</p>
+  <h1>Assignment 7 - Books Edition</h1>
+  <p>Use this page to test your server-side application!</p>
 
-    <h2>Browse Authors</h2>
-    <a href="/api/v1/authors">All Authors</a>
-    
-    <h2>Browse Books</h2>
-    <form action="/api/v1/books" method="GET">
-        <label>
-            Format:
-            <select name="format">
-                <option value="hardcover">Hard Cover</option>
-                <option value="paperback">Paperback</option>
-            </select>
-        </label>
-        <label>
-            Page:
-            <input name="page" type="number" min="0" value="0">
-        </label>
-        <button>submit</button>
-    </form>
+  <h2>Details for Selected Authors</h2>
+  <ul>
+    <li><a href="/api/v1/authors/6">Author 6</a></li>
+    <li><a href="/api/v1/authors/12">Author 12</a></li>
+    <li><a href="/api/v1/authors/18">Author 18</a></li>
+    <li><a href="/api/v1/authors/24">Author 24</a></li>
+    <li><a href="/api/v1/authors/30">Author 30</a></li>
+  </ul>
 
-    <h2>Details for Selected Books</h2>
-    <ul>
-        <li><a href="/api/v1/books/9781739822507">9781739822507</a></li>
-        <li><a href="/api/v1/books/9781911617235">9781911617235</a></li>
-        <li><a href="/api/v1/books/9781788160919">9781788160919</a></li>
-        <li><a href="/api/v1/books/9781788160124">9781788160124</a></li>
-        <li><a href="/api/v1/books/9781474623025">9781474623025</a></li>
-    </ul>
+  <a href="/api/v1/authors">All Authors</a>
 
-    <h2>Rate a Book</h2>
-    <form action="/api/v1/ratings" method="POST">
-        <label>
-            Choose a book by ID (not ISBN):
-            <input name="book_id" type="number" min="0" value="13">
-        </label>
-        <label>
-            Choose a rating out of 5
-            <input name="rating" type="number" min="0" max="5" value="4">
-        </label>
-        <button>submit</button>
-    </form>
+  <h2>Browse Books</h2>
+  <form action="/api/v1/books" method="GET">
+    <label>
+      Format:
+      <select name="format">
+        <option value="hardcover">Hard Cover</option>
+        <option value="paperback">Paperback</option>
+      </select>
+    </label>
+    <label>
+      Page:
+      <input name="page" type="number" min="0" value="0">
+    </label>
+    <button>submit</button>
+  </form>
+
+  <h2>Details for Selected Books</h2>
+  <ul>
+    <li><a href="/api/v1/books/2">2</a></li>
+    <li><a href="/api/v1/books/4">4</a></li>
+    <li><a href="/api/v1/books/8">8</a></li>
+    <li><a href="/api/v1/books/16">16</a></li>
+    <li><a href="/api/v1/books/32">32</a></li>
+  </ul>
+
+  <h2>Write a Review</h2>
+
+  <form action="/api/v1/reviews" method="POST">
+    <label>
+      Your name:
+      <input name="reviewer" type="text" value="Jordan Miller">
+    </label>
+
+    <label>
+      ID of book you'd like to review:
+      <input name="book_id" type="number" min="1" value="2">
+    </label>
+
+    <label>
+      Your rating of the book:
+      <input name="rating" type="number" min="0" max="5" value="3">
+    </label>
+
+    <label>
+      Your comments:
+      <textarea name="comment">Great book, a real page-turner</textarea>
+    </label>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <h2>Selected Reviews By ID</h2>
+  <ul>
+    <li><a href="/api/v1/reviews/1">1</a></li>
+    <li><a href="/api/v1/reviews/2">2</a></li>
+    <li><a href="/api/v1/reviews/3">3</a></li>
+  </ul>
+
 </body>
+
 </html>
