@@ -1,14 +1,17 @@
-import getBooks, { getBookById } from '../models/booksModel.js';
+import { getBookById, getBooks } from '../models/booksModel.js';
 
 export function getBooksList(request, response) {
   try {
-    const format = request.query.formar || 'hardcover';
-    const page = math.max(Number.parseInt(request.query.page || '0', 10) || 0, 0);
+    const format = request.query.format || 'hardcover';
+    const page = Math.max(Number.parseInt(request.query.page || '0', 10) || 0, 0);
     const offset = page * 10;
-    const books = getBooks(fortmat, offset);
+    const books = getBooks(format, offset);
+
     response.json(books);
   } catch (error) {
-    response.status(500).json({ error: 'Unable to retrieve books' });
+    response.status(500).json({
+      error: 'Unable to retrieve books',
+    });
   }
 }
 
@@ -18,11 +21,16 @@ export function getBookDetails(request, response) {
     const book = getBookById(id);
 
     if (!book) {
-      response.status(404).json({ error: 'Book not found' });
+      response.status(404).json({
+        error: 'Book not found',
+      });
       return;
     }
+
     response.json(book);
   } catch (error) {
-    response.status(500).json({ error: 'Unable to retrieve book details' });
+    response.status(500).json({
+      error: 'Unable to retrieve book details',
+    });
   }
 }
