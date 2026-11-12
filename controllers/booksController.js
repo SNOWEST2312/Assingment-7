@@ -1,4 +1,4 @@
-import { getBooksById, getBooks } from '../models/booksModel.js';
+import { getAuthorsByBookId, getBooks, getBookById } from '../models/booksModel.js';
 
 export function getBooksList(request, response) {
   try {
@@ -6,7 +6,6 @@ export function getBooksList(request, response) {
     const page = Math.max(Number.parseInt(request.query.page || '0', 10) || 0, 0);
     const offset = page * 10;
     const books = getBooks(format, offset);
-
     response.json(books);
   } catch (error) {
     response.status(500).json({
@@ -18,7 +17,7 @@ export function getBooksList(request, response) {
 export function getBookDetails(request, response) {
   try {
     const { id } = request.params;
-    const book = getBooksById(id);
+    const book = getBookById(id);
 
     if (!book) {
       response.status(404).json({
@@ -27,7 +26,16 @@ export function getBookDetails(request, response) {
       return;
     }
 
-    response.json(book);
+    const authors = getAuthorsByBookId(id).map((author) => ({
+      name: author.name,
+      author_id: author.id,
+      link: `/api/v1/authors/${author.id}`,
+    }));
+
+    response.json({
+      ...book,
+      authors,
+    });
   } catch (error) {
     response.status(500).json({
       error: 'Unable to retrieve book details',

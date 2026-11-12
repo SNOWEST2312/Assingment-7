@@ -8,7 +8,7 @@ export function getBooks(format, offset) {
   return statement.all(format, offset);
 }
 
-export function getBooksById(id) {
+export function getBookById(id) {
   const statement = database.prepare(`
     SELECT books.*, publishers.publisher
     FROM books
@@ -17,4 +17,15 @@ export function getBooksById(id) {
   `);
 
   return statement.get(id);
+}
+
+export function getAuthorsByBookId(bookId) {
+  const statement = database.prepare(`
+    SELECT authors.id, authors.name
+    FROM authors
+    JOIN authored ON authors.id = authored.author_id
+    WHERE authored.book_id = ?
+  `);
+
+  return statement.all(bookId);
 }
