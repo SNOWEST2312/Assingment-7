@@ -1,4 +1,4 @@
-import { getBookById, getBooks } from '../models/booksModel.js';
+import { getBooksById, getBooks } from '../models/booksModel.js';
 
 export function getBooksList(request, response) {
   try {
@@ -18,7 +18,7 @@ export function getBooksList(request, response) {
 export function getBookDetails(request, response) {
   try {
     const { id } = request.params;
-    const book = getBookById(id);
+    const book = getBooksById(id);
 
     if (!book) {
       response.status(404).json({

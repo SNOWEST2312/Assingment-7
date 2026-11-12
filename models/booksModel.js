@@ -8,7 +8,7 @@ export function getBooks(format, offset) {
   return statement.all(format, offset);
 }
 
-export function getBookById(id) {
+export function getBooksById(id) {
   const statement = database.prepare(`
     SELECT books.*, publishers.publisher
     FROM books
@@ -18,4 +18,3 @@ export function getBookById(id) {
 
   return statement.get(id);
 }
-  
